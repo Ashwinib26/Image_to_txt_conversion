@@ -1,0 +1,22 @@
+----- Concepts Involved - 
+
+Optical Character Recognition (OCR): OCR is a technology that reads text from images and converts it into digital text that a computer can understand. In this code, we use Tesseract, a popular OCR tool, to read and extract text from an image.
+
+Image Preprocessing with OpenCV: The image needs to be cleaned up before it’s passed to Tesseract. Using OpenCV, the image is first converted to grayscale, which simplifies it. Next, Gaussian Blur smooths the image to remove noise, making the text clearer. Finally, thresholding changes the image to pure black and white, highlighting the text areas for better detection.
+
+Tesseract Configuration: We use --oem 3 (OCR Engine Mode) to use the latest Tesseract model, and --psm 6 (Page Segmentation Mode) to treat the image as a single block of text, which works best for typical documents.
+
+----- Code Operation -
+
+Image Loading and Preprocessing:
+
+The image is loaded using cv2.imread() and converted to grayscale.
+The image is blurred to reduce noise.
+Thresholding is applied to create a clean black-and-white version.
+Text Extraction:
+
+The cleaned-up image is passed to Tesseract using pytesseract.image_to_string() for extracting the text content.
+Output and Visualization:
+
+The extracted text is printed.
+The processed image is displayed using OpenCV (cv2.imshow).
